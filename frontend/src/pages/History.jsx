@@ -6,7 +6,7 @@ function History() {
 
   // ✅ FETCH HISTORY
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/history")
+    fetch("https://career-backend.onrender.com/api/history")
       .then((res) => res.json())
       .then((data) => {
         console.log("HISTORY:", data);
