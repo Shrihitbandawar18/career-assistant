@@ -224,18 +224,18 @@ def recommend():
         db.session.add(history)
         db.session.commit()
 
-        cursor = conn.cursor()
+        # cursor = conn.cursor()
 
-        cursor.execute(
-            "INSERT INTO history (action, email, result) VALUES (?, ?, ?)",
-            (
-                "Career Recommendation",
-                data.get("email", "test_user"),   
-                json.dumps(results)              
-            )
-        )
+        # cursor.execute(
+        #     "INSERT INTO history (action, email, result) VALUES (?, ?, ?)",
+        #     (
+        #         "Career Recommendation",
+        #         data.get("email", "test_user"),   
+        #         json.dumps(results)              
+        #     )
+        # )
 
-        conn.commit()
+        # conn.commit()
 
         return jsonify({"results": results})
     except Exception as e:
