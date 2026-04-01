@@ -540,7 +540,7 @@ import os
 from groq import Groq
 import os
 
-client = Groq(api_key="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")  # direct for now
+client = Groq(api_key="API KEY")  # direct for now
 
 @app.route('/api/chat', methods=['POST'])
 def chatbot():
