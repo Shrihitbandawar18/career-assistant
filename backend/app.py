@@ -7,21 +7,43 @@ import json
 import os
 import sqlite3
 
-conn = sqlite3.connect("users.db", check_same_thread=False)
+import sqlite3
+
+def init_db():
+    import os
+
+    DB_PATH = os.path.join(os.getcwd(), "users.db")
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    # USERS TABLE
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        email TEXT,
+        password TEXT
+    )
+    """)
+
+    # HISTORY TABLE
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS history (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        email TEXT,
+        action TEXT,
+        result TEXT
+    )
+    """)
+
+    conn.commit()
+    conn.close()
+
+conn = sqlite3.connect("users.db")
 cursor = conn.cursor()
 
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS history (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    action TEXT,
-    email TEXT,
-    result TEXT
-)
-""")
-
-conn.commit()
-
 app = Flask(__name__)
+init_db()
 CORS(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
