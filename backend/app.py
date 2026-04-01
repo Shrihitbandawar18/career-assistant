@@ -39,8 +39,6 @@ def init_db():
     conn.commit()
     conn.close()
 
-conn = sqlite3.connect("users.db")
-cursor = conn.cursor()
 
 app = Flask(__name__)
 init_db()
