@@ -93,8 +93,8 @@ def login():
         return jsonify({"message": "Login successful"})
 
     except Exception as e:
-        print("LOGIN ERROR:", e)
-        return jsonify({"message": "Server error"}), 500
+        print("FULL ERROR:", e)
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/api/recommend', methods=['POST'])
 def recommend():
@@ -239,8 +239,8 @@ def recommend():
 
         return jsonify({"results": results})
     except Exception as e:
-        print("ERROR:", e)
-        return jsonify({"message": "Server error"}), 500
+        print("FULL ERROR:", e)
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/api/resume', methods=['POST'])
 def analyze_resume():
@@ -377,8 +377,8 @@ def analyze_resume():
         return jsonify(result)
 
     except Exception as e:
-        print("RESUME ERROR:", e)
-        return jsonify({"error": "Server crash"}), 500
+        print("FULL ERROR:", e)
+        return jsonify({"error": str(e)}), 500
 @app.route('/api/jobs', methods=['POST'])
 def get_jobs():
     try:
@@ -509,8 +509,8 @@ def get_jobs():
         return jsonify({"jobs": jobs})
 
     except Exception as e:
-        print("JOB ERROR:", e)
-        return jsonify({"message": "Server error"}), 500
+        print("FULL ERROR:", e)
+        return jsonify({"error": str(e)}), 500
 @app.route("/api/history", methods=["GET"])
 def get_history():
     try:
@@ -552,8 +552,8 @@ def clear_history():
         return jsonify({"message": "History cleared successfully"})
 
     except Exception as e:
-        print("CLEAR ERROR:", e)
-        return jsonify({"message": "Error clearing history"}), 500
+        print("FULL ERROR:", e)
+        return jsonify({"error": str(e)}), 500
 
 
 import os
@@ -582,8 +582,8 @@ def chatbot():
         return jsonify({"answer": answer})
 
     except Exception as e:
-        print("FULL ERROR:", str(e))   # 🔥 IMPORTANT
-        return jsonify({"answer": "Error from AI"}), 500
+        print("FULL ERROR:", e)
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/api/roadmap', methods=['POST'])
 def roadmap():
@@ -655,8 +655,8 @@ def roadmap():
         return jsonify(roadmap_data)
 
     except Exception as e:
-        print("ROADMAP ERROR:", e)
-        return jsonify({"error": "Server error"}), 500
+        print("FULL ERROR:", e)
+        return jsonify({"error": str(e)}), 500
        
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
