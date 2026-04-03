@@ -15,7 +15,7 @@ function Career() {
 
   const handleSubmit = async () => {
     try {
-      const res = await fetch("https://career-backend.onrender.com/api/recommend", {
+      const res = await fetch("https://career-backend-yx3b.onrender.com/api/recommend", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

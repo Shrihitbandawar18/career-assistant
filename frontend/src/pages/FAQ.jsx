@@ -16,7 +16,7 @@ function FAQ() {
     setChat((prev) => [...prev, userMessage]);
 
     try {
-      const res = await fetch("https://career-backend.onrender.com/api/chat", {
+      const res = await fetch("https://career-backend-yx3b.onrender.com/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

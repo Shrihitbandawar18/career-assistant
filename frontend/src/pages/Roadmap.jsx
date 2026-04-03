@@ -12,7 +12,7 @@ function Roadmap() {
     setRoadmap(null);
 
     try {
-      const res = await fetch("https://career-backend.onrender.com/api/roadmap", {
+      const res = await fetch("https://career-backend-yx3b.onrender.com/api/roadmap", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

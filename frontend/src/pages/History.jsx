@@ -6,7 +6,7 @@ function History() {
 
   // ✅ FETCH HISTORY
   useEffect(() => {
-    fetch("https://career-backend.onrender.com/api/history")
+    fetch("https://career-backend-yx3b.onrender.com/api/history")
       .then((res) => res.json())
       .then((data) => {
         console.log("HISTORY:", data);
@@ -20,7 +20,7 @@ function History() {
     const confirmDelete = window.confirm("Are you sure you want to clear history?");
     if (!confirmDelete) return;
 
-    const res = await fetch("https://career-backend.onrender.com/api/clear-history", {
+    const res = await fetch("https://career-backend-yx3b.onrender.com/api/clear-history", {
       method: "DELETE",
     });
 

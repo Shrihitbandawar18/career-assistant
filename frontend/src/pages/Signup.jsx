@@ -16,7 +16,7 @@ function Signup({ setPage }) {
   e.preventDefault();
 
   try {
-    const res = await fetch("https://career-backend.onrender.com/api/signup", {
+    const res = await fetch("https://career-backend-yx3b.onrender.com/api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

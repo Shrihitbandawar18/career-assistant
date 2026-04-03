@@ -14,7 +14,7 @@ function Resume({ setPage }) {
     formData.append("file", file);
 
     try {
-      const res = await fetch("https://career-backend.onrender.com/api/resume", {
+      const res = await fetch("https://career-backend-yx3b.onrender.com/api/resume", {
         method: "POST",
         body: formData
       });
