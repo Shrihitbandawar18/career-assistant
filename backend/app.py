@@ -41,11 +41,13 @@ def init_db():
 
 
 app = Flask(__name__)
-init_db()
-CORS(app)
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+CORS(app)
+init_db()
+
+
+
 
 db.init_app(app)
 
